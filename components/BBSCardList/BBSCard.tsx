@@ -1,13 +1,19 @@
 import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from "@/components/ui/card";
 import Link from "next/link";
+import { BBSData } from "@/app/types/types";
 
-const BBSCard = () => {
+interface BBSCardProps {
+  bbsData: BBSData
+}
+
+const BBSCard = ({bbsData}: BBSCardProps) => {
+  const { title, content } = bbsData
   return (
     <div className="grid lg:grid-cols-3 p-4 gap-4">
       <Card>
         <CardHeader>
-          <CardTitle>Create project</CardTitle>
-          <CardDescription>Deploy your new project in one-click.</CardDescription>
+          <CardTitle>{title}</CardTitle>
+          <CardDescription>{content}</CardDescription>
         </CardHeader>
         <CardContent>
         </CardContent>
